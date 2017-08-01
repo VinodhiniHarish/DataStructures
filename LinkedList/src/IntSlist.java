@@ -21,6 +21,7 @@ public class IntSlist {
 	}
 	
 	public Node[] find(int x, Node[] node) {
+		//Find the node in Linked List
 		node = new Node[2];
 		node[0] = first;
 		node[1] = last;
@@ -35,15 +36,14 @@ public class IntSlist {
 		
 	}
 	public boolean contains(int x) {
-		System.out.println("Inside Contains");
+		//Check if node is present in Linked List
 		Node[] nodes = new Node[2];
 		nodes = find(x,nodes);
-		System.out.println("Node[0] "+nodes[0].d);
-		System.out.println("Nodes[1] "+nodes[1].d);
 		return (nodes[0]!=null?true:false);
 		
 	}
 	public void add(int x) {
+		//Add a new Node to the Linked List
 		Node node=new Node(x);
 		if(first!=null && last!=null) {
 			last.next = node;
@@ -57,6 +57,7 @@ public class IntSlist {
 	}
 	
 	public boolean remove(int x) {
+		//Remove a Node from Linked List
 		Node[] nodes = new Node[2];
 		nodes = find(x, nodes);
 		if(nodes!=null) {
@@ -79,6 +80,7 @@ public class IntSlist {
 	}
 	
 	public static void addNodes(IntSlist l1,IntSlist l2) {
+		//Add two non-empty linked lists representing two non-negative integers.
 		int carry =0;int total =0;int rem=0;
 		IntSlist sum = new IntSlist();
 		int len1 = length(l1);
@@ -116,6 +118,7 @@ public class IntSlist {
 	}
 	
 	public IntSlist reverseSlist(IntSlist l) {
+		//Reverse a Linked List
 		Node c = l.first;
 		l.last = l.first;
 		while(c!=null) {
