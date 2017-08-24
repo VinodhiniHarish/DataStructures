@@ -1,6 +1,12 @@
 
 public class MaxHeap {
 	
+	// Heap is a complete binary tree.
+	// Right child cannot be added until left child is present
+	// Left <= Root
+	// Right <=Root
+	// Left and Right subtrees are heap.
+	
 	protected IntArray heap;
 	protected int pos;
 	public static final int NULL = -99999999;
@@ -16,16 +22,19 @@ public class MaxHeap {
 		buildHeapTopToBottom(a);
 	}
 	
+	// Get the Left child
 	public int left(int x) {
 		int n = x * 2;
 		return (n>pos ? 0: n);
 	}
 	
+	// Get the Right child
 	public int right(int x) {
 		int n = x * 2 + 1;
 		return (n > pos ? 0: n);
 	}
 	
+	// Get the parent
 	public int parent(int x) {
 		int n = x/2;
 		return (n >= 1 ? n: 0);
@@ -89,14 +98,16 @@ public class MaxHeap {
 		
 		while(true) {
 			if(left!=0 && right ==0) {
+				assert(false);
 				return 0;
-//				assert(false);
 			}else if(left !=0 && right ==0) {
+				//When One child is present
 				boolean m = isParentBiggerThanChild(x, left);
 				if(!m) {
 					return left;
 				}
 			}else if(left!=0 && right!=0) {
+				//When both left and right child are present
 				int c = right;
 				if(heap.get(left) > heap.get(right)) {
 					c = left;
